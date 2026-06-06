@@ -18,12 +18,14 @@ typedef struct
     int status;
 } template;
 
-
-void view(void);
-void delete_book(void);
-void search(void);
-void add(void);
-void set_status(void);
 extern template Data[storage];
+
+void addBook();
+void searchBook();
+void borrowBook();
+void returnBook();
+void displayBooks();
+void saveBooks();
+void loadBooks();
 
 #endif

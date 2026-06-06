@@ -28,19 +28,19 @@ int main(){
         switch (input)
         {
         case '1':
-            view();
+           
             break;
         case '2':
-            set_status();
+           
             break;
         case '3':
-            search();
+           
             break;
         case '4':
-            add();
+         
             break;
         case '5':
-            delete_book();
+        
             break;
         default:
         printf("\n%s", LINE);
