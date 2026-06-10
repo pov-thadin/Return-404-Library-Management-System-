@@ -99,6 +99,15 @@ void arrange_data(int from_index){
     strcpy(Data[ci].author, "");
 }
 
+
+int get_data_size(){
+    int num = 0;
+    for (int i = 0; Data[i].ID != 0; i++){
+        num += 1;
+    }
+    return num;
+}
+
 int get_index_by_search(char *input){
     int v = 0;
     int code = 0;

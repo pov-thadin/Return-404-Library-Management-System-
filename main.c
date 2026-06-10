@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include "connector.h"
 
-#define cmd_size 5
+#define cmd_size 6
 
-char cmd[cmd_size] = {'1', '2', '3', '4', '5'};
+char cmd[cmd_size] = {'1', '2', '3', '4', '5', '6'};
 char cmd_text[cmd_size][20] = {
     "view",
-    "set status",
     "search",
+    "barrow",
+    "return",
     "add",
     "delete"
 };
@@ -16,30 +17,33 @@ int main(){
     int run = 0;
     while (run == 0)
     {   
-        char input;
+        int input;
         printf("\n%s", LINE);
         for (int i = 0; i < cmd_size; i ++){
             printf("\n%c. %s", cmd[i], cmd_text[i]);
         }
+
         printf("\n%s", LINE);
         printf("\n Enter code: ");
-        input = getchar();
-        while (getchar() != '\n');
+        scanf("%i", &input);
+        getchar();
         switch (input)
         {
-        case '1':
-           
+        case 1:
+            displayBooks();
             break;
-        case '2':
-           
+        case 2:
+            searchBook();
+        case 3:
+            borrowBook();
             break;
-        case '3':
-           
+        case 4:
+            returnBook();
             break;
-        case '4':
-         
+        case 5:
+            addBook();
             break;
-        case '5':
+        case 6:
         
             break;
         default:
