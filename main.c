@@ -18,6 +18,7 @@ int main(){
     while (run == 0)
     {   
         int input;
+        printf("hello");
         printf("\n%s", LINE);
         for (int i = 0; i < cmd_size; i ++){
             printf("\n%c. %s", cmd[i], cmd_text[i]);
