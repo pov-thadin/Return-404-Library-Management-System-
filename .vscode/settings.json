@@ -34,9 +34,6 @@
     "*",
     "**/*"
   ],
-  "code-runner.executorMap": {
-    "c": "cd $dir && gcc (Get-Item *.c) -o $fileNameWithoutExt && ./$fileNameWithoutExt"
-  },
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
