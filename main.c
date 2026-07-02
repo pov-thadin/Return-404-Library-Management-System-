@@ -1,8 +1,11 @@
 #include <stdio.h>
-#include "connector.h"
-
+#include <string.h>
+//-----------------------------------------------------------------------------------------------------------
+#include "function.h"
+#include "util.h"
+//CONST DATA-------------------------------------------------------------------------------------------------
 #define cmd_size 6
-
+//COMMAND-------------------------------------------------------------------------------------------------
 char cmd[cmd_size] = {'1', '2', '3', '4', '5', '6'};
 char cmd_text[cmd_size][20] = {
     "view",
@@ -10,15 +13,18 @@ char cmd_text[cmd_size][20] = {
     "barrow",
     "return",
     "add",
-    "delete"
+    "Exit"
 };
 
 int main(){
+
+    int id = 1001;
+    saveBooks(id, AVAILABLE);
+
     int run = 0;
     while (run == 0)
     {   
         int input;
-        printf("hello");
         printf("\n%s", LINE);
         for (int i = 0; i < cmd_size; i ++){
             printf("\n%c. %s", cmd[i], cmd_text[i]);
@@ -45,7 +51,7 @@ int main(){
             addBook();
             break;
         case 6:
-        
+            run = 1;
             break;
         default:
         printf("\n%s", LINE);
@@ -53,6 +59,6 @@ int main(){
             break;
         }
     }
-    
+
     return 0;
 }
