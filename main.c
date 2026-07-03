@@ -18,19 +18,16 @@ char cmd_text[cmd_size][20] = {
 
 int main(){
 
-    int id = 1001;
-    saveBooks(id, AVAILABLE);
-
     int run = 0;
     while (run == 0)
     {   
         int input;
-        printf("\n%s", LINE);
+        printf("\n%s", LINE2);
         for (int i = 0; i < cmd_size; i ++){
             printf("\n%c. %s", cmd[i], cmd_text[i]);
         }
 
-        printf("\n%s", LINE);
+        printf("\n%s", LINE2);
         printf("\n Enter code: ");
         scanf("%i", &input);
         getchar();

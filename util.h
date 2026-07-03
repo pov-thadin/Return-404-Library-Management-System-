@@ -5,7 +5,8 @@
 #define Max_String 40
 #define library_storage 40
 #define Max_String 40
-#define LINE "--------------------------------------"
+#define LINE "---------------------------------------------------------------------------------"
+#define LINE2 "================================================================================="
 
 typedef enum{
     BORROWED,
@@ -18,6 +19,7 @@ typedef struct
     char title[Max_String];
     char author[Max_String];
     Book_Status status;
+    int borrowed_record;
 } Book;
 extern Book Library[library_storage];
 
