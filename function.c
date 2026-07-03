@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "util.h"
 #include <string.h>
-
+#include <stdbool.h>
 
 
 void addBook(){
@@ -25,7 +25,38 @@ void addBook(){
 }
 
 void searchBook(){
+    char input[Max_String];
+    printf("\n%s", LINE);
+    printf("\nEnter book's ID/Title/Author: ");
+    fgets(input, Max_String, stdin);
+    input[strcspn(input, "\n")] = '\0';
 
+    int id = 0;
+    bool IsNumber = true;
+    for (int i = 0; input[i] != '\0' || IsNumber == false; i++){
+        if (input[i] >= '0' && input[i] <= '9' && IsNumber == true){
+            id = (id * 10) + (input[i] - '0');
+            printf("%i", id);
+        }else{
+            IsNumber = false;
+            break;
+        }
+    }
+    Book *book = (IsNumber == true)? loadBooks(id) : loadBooks_byString(input);
+
+    if (book != NULL){
+        printf("\n%s", LINE);
+        printf("\nBook Founded:  ID: %-6d Title: %-25s Author: %-25s Status: %-10s Borrowed Record: %-6d",
+            book->id,
+            book->title,
+            book->author,
+            (book->status == AVAILABLE)? "Available" : "Borrowed",
+            book->borrowed_record
+        );
+    }else{
+        printf("\nBook not Founded!");
+    }
+    
 } 
 void borrowBook(){
     int id;

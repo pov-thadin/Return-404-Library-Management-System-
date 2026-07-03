@@ -38,6 +38,7 @@ int main(){
             break;
         case 2:
             searchBook();
+            break;
         case 3:
             borrowBook();
             break;

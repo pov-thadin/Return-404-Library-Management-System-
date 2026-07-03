@@ -27,5 +27,6 @@ extern Book Library[library_storage];
 void add_NewBook(char *title, char *author);
 void saveBooks(int id, int status);
 Book *loadBooks(int id);
+Book *loadBooks_byString(char *str);
 
 #endif
