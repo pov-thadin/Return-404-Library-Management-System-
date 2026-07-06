@@ -5,23 +5,28 @@
 
 
 void addBook(){
-    char title[Max_String];
-    char author[Max_String];
-    printf("\n%s", LINE);
-    printf("\nEnter Book Title: ");        
-    fgets(title, Max_String, stdin);
 
-    printf("Enter Author Name: ");
-    fgets(author, Max_String, stdin);
-    printf("\n%s", LINE);
-    // Remove '\n' added by fgets
-    title[strcspn(title, "\n")] = '\0';
-    author[strcspn(author, "\n")] = '\0';
+    if (get_total_book() < library_storage){
+        char title[Max_String];
+        char author[Max_String];
+        printf("\n%s", LINE);
+        printf("\nEnter Book Title: ");        
+        fgets(title, Max_String, stdin);
 
-    // Built-in function
-    add_NewBook(title, author);
+        printf("Enter Author Name: ");
+        fgets(author, Max_String, stdin);
+        printf("\n%s", LINE);
+        
+        title[strcspn(title, "\n")] = '\0';
+        author[strcspn(author, "\n")] = '\0';
 
-    printf("\nBook added successfully!");
+        
+        add_NewBook(title, author);
+
+        printf("\nBook added successfully!");
+    }else{
+        printf("\nStorage Full!");
+    }
 }
 
 void searchBook(){
@@ -46,7 +51,7 @@ void searchBook(){
 
     if (book != NULL){
         printf("\n%s", LINE);
-        printf("\nBook Founded:  ID: %-6d Title: %-25s Author: %-25s Status: %-10s Borrowed Record: %-6d",
+        printf("\nBook Founded:  ID: %d | Title: %s | Author: %s | Status: %s | Borrowed Record: %d",
             book->id,
             book->title,
             book->author,
@@ -73,11 +78,11 @@ void borrowBook(){
     }
 
     if(book->status==BORROWED){
-        printf("\nBook is unavailable.");
+        printf("\n\"%s\" is unavailable.", book->title);
     }else{
         book->borrowed_record += 1;
         book->status=BORROWED;
-        printf("\nBook borrowed successfully.");
+        printf("\n\"%s\" borrowed successfully.", book->title);
     }
 }
 void returnBook(){
@@ -94,10 +99,10 @@ void returnBook(){
     }
 
     if(book->status==AVAILABLE){
-        printf("\nBook is already available.");
+        printf("\n\"%s\" is already available.", book->title);
     }else{
         book->status=AVAILABLE;
-        printf("\nBook returned successfully.");
+        printf("\n\"%s\" returned successfully.", book->title);
     }
 } 
 void displayBooks(){

@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <string.h>
-//-----------------------------------------------------------------------------------------------------------
+
 #include "function.h"
 #include "util.h"
-//CONST DATA-------------------------------------------------------------------------------------------------
+//CONST DATA
 #define cmd_size 6
-//COMMAND-------------------------------------------------------------------------------------------------
+//COMMAND
 char cmd[cmd_size] = {'1', '2', '3', '4', '5', '6'};
 char cmd_text[cmd_size][20] = {
-    "view",
-    "search",
-    "barrow",
-    "return",
-    "add",
+    "view book",
+    "search book",
+    "borrow book",
+    "return book",
+    "add book",
     "Exit"
 };
 

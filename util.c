@@ -21,6 +21,17 @@ void saveBooks(int id, int status){
     BookToSave->status = (Book_Status)status;
 }
 
+int get_total_book(){
+    int i = 0;
+    for (i; i < library_storage; i++){
+        if (Library[i].id == 0){
+            break;
+        }
+    }
+
+    return i + 1;
+}
+
 Book *loadBooks(int id){
     for (int i = 0; Library[i].id != 0; i++){
         if (Library[i].id == id){
