@@ -16,20 +16,15 @@ void add_NewBook(char *title, char *author){
     strcpy(Library[i].author, author);
 }
 
-void saveBooks(int id, int status){
-    Book *BookToSave = loadBooks(id);
-    BookToSave->status = (Book_Status)status;
-}
-
 int get_total_book(){
-    int i = 0;
-    for (i; i < library_storage; i++){
-        if (Library[i].id == 0){
-            break;
+    int size = 0;
+    for (int i = 0; i < library_storage; i++){
+        if (Library[i].id != 0){
+            size += 1;
         }
     }
 
-    return i + 1;
+    return size;
 }
 
 Book *loadBooks(int id){

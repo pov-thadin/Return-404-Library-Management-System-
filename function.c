@@ -5,7 +5,6 @@
 
 
 void addBook(){
-
     if (get_total_book() < library_storage){
         char title[Max_String];
         char author[Max_String];
@@ -60,9 +59,9 @@ void searchBook(){
         );
     }else{
         printf("\nBook not Founded!");
-    }
-    
+    }    
 } 
+
 void borrowBook(){
     int id;
     printf("\n%s", LINE);
@@ -74,7 +73,7 @@ void borrowBook(){
 
     if(book==NULL){
         printf("\nBook not found!");
-        return;
+        return ;
     }
 
     if(book->status==BORROWED){
@@ -95,7 +94,7 @@ void returnBook(){
 
     if(book==NULL){
         printf("\nBook not found!");
-        return;
+        return ;
     }
 
     if(book->status==AVAILABLE){
@@ -110,6 +109,7 @@ void displayBooks(){
     printf("\n%s", LINE);
     printf("\n1. view all\n2. view borrowed\n3. view available\nEnter Option: ");
     scanf("%i", &opt);
+
     printf("\n%s", LINE);
     printf("\n|%-6s|%-25s|%-25s|%-10s|", "ID", "Title", "Author", "Status");
     printf("\n%s", LINE);
@@ -117,7 +117,7 @@ void displayBooks(){
     if (opt >= 1 && opt <= 3){
         for (int i = 0; i < library_storage; i++){
             if (Library[i].id == 0)
-                continue;
+                return;
             if (opt == 1 || Library[i].status == opt - 2){
                 printf("\n|%-6d|%-25s|%-25s|%-10s|",
                 Library[i].id,
